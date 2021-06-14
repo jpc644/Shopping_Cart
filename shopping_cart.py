@@ -46,6 +46,8 @@ def to_usd(my_price):
 #
 #products = []
 
+total_price = 0
+
 while True:
     Selected_ID = input("Please Enter A Product ID:") #> "9" (string)
     if Selected_ID == "DONE":
@@ -53,13 +55,13 @@ while True:
     else:
         matching_products = [p for p in products if str(p["id"]) == str(Selected_ID)]
         matching_product = matching_products[0]
+        total_price = total_price + matching_product["price"]
         print("You have selected: " + str(matching_product["name"]) + " " + str(matching_product["price"]))
 
 
 #Display
 #
-#
-#
+print("TOTAL PRICE:" + str(total_price)) #ToDo format as USD
 
 #A grocery store name of your choice
 #A grocery store phone number and/or website URL and/or address of choice

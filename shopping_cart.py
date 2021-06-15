@@ -46,28 +46,53 @@ def to_usd(my_price):
 #
 #products = []
 
+print("--------------------------")
+print("Welcome to Jimmy's Bodega!")
+print("--------------------------")
+
 total_price = 0
 
+selected_IDs = []
+
 while True:
-    Selected_ID = input("Please Enter A Product ID:") #> "9" (string)
-    if Selected_ID == "DONE":
+    Selected_ID = input("Please Enter A Product ID or Enter ORDER COMPLETE:") #> "9" (string)
+    if Selected_ID == "ORDER COMPLETE":
         break
     else:
+        selected_IDs.append(Selected_ID)
+
+for Selected_ID in selected_IDs:
         matching_products = [p for p in products if str(p["id"]) == str(Selected_ID)]
-        matching_product = matching_products[0]
+        matching_product = matching_products[0] 
         total_price = total_price + matching_product["price"]
-        print("You have selected: " + str(matching_product["name"]) + " " + str(matching_product["price"]))
+        print("You have selected: " + str(matching_product["name"]) + " " + (str(to_usd(matching_product["price"]))))
+
+
+print("-----------------------------")
+print("THANK YOU FOR SHOPPING AT JIMMY'S BODEGA")
+print("-----------------------------")
+print("Website: www.jimmysbodega.com")
+print("Phone: (+1 201-306-3077")
+print("-----------------------------")
+
+import datetime
+now = datetime.datetime.now()
+x = now - datetime.timedelta(microseconds = now.microsecond)
+#print(type(now)) using datetime module
+print("Checkout Time:" + str(x))
+
+#for matching_product in products:
 
 
 #Display
-#
-print("TOTAL PRICE:" + str(total_price)) #ToDo format as USD
 
-#A grocery store name of your choice
-#A grocery store phone number and/or website URL and/or address of choice
-#The date and time of the beginning of the checkout process, formatted in a human-friendly way (e.g. 2020-02-07 03:54 PM)
+print("TOTAL PRICE:" + str(to_usd((total_price))) #ToDo format as USD
+
+#A grocery store name of your choice YES
+#A grocery store phone number and/or website URL and/or address of choice YES
+#The date and time of the beginning of the checkout process, formatted in a human-friendly way (e.g. 2020-02-07 03:54 PM) YES
 #The name and price of each shopping cart item, price being formatted as US dollars and cents (e.g. $3.50, etc.)
 #The total cost of all shopping cart items (i.e. the "subtotal"), formatted as US dollars and cents (e.g. $19.47), calculated as the sum of their prices
 #The amount of tax owed (e.g. $1.70), calculated by multiplying the total cost by a New York City sales tax rate of 8.75% (for the purposes of this project, groceries are not exempt from sales tax)
 #The total amount owed, formatted as US dollars and cents (e.g. $21.17), calculated by adding together the amount of tax owed plus the total cost of all shopping cart items
-#A friendly message thanking the customer and/or encouraging the customer to shop again
+#A friendly message thanking the customer and/or encouraging the customer to shop 

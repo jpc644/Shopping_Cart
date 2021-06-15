@@ -67,27 +67,39 @@ for Selected_ID in selected_IDs:
         total_price = total_price + matching_product["price"]
         print("You have selected: " + str(matching_product["name"]) + " " + (str(to_usd(matching_product["price"]))))
 
+#Display
 
 print("-----------------------------")
-print("THANK YOU FOR SHOPPING AT JIMMY'S BODEGA")
+print("RECEIPT FOR JIMMY'S BODEGA")
 print("-----------------------------")
 print("Website: www.jimmysbodega.com")
-print("Phone: (+1 201-306-3077")
+print("Phone: +1 201-306-3077")
 print("-----------------------------")
 
 import datetime
 now = datetime.datetime.now()
 x = now - datetime.timedelta(microseconds = now.microsecond)
 #print(type(now)) using datetime module
-print("Checkout Time:" + str(x))
+print("Checkout Time:" + " " + str(x))
 
 #for matching_product in products:
+print("-----------------------------")
+print("-----------------------------")
+
+import statistics
 
 
-#Display
+print("TOTAL PRICE:" + " " + str(to_usd((total_price)))) #ToDo format as USD
 
-print("TOTAL PRICE:" + str(to_usd((total_price))) #ToDo format as USD
+total_tax = (total_price *.0875)
+print("TOTAL TAX:" + " " + str(to_usd(total_tax)))
 
+total_amount_due = total_tax + total_price
+print("TOTAL AMOUNT DUE:" + " " + str(to_usd(total_amount_due)))
+
+print("-----------------------------")
+print("-----------------------------")
+print("THANK YOU FOR SHOPPING WITH US, COME AGAIN SOON!")
 #A grocery store name of your choice YES
 #A grocery store phone number and/or website URL and/or address of choice YES
 #The date and time of the beginning of the checkout process, formatted in a human-friendly way (e.g. 2020-02-07 03:54 PM) YES
